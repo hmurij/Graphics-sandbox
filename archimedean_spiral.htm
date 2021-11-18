@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="Vendor/glm/glm-js.min.js" defer></script>
+  <script src="Script/ShaderProgram.js" defer></script>
+  <script src="Script/archimedean_spiral.js" defer></script>
+  <!-- <script src='https://git.io/glm-js.min.js'></script> -->
+  <title>My Graphics Sandbox</title>
+</head>
+
+<body>
+  <div class="navbar">
+    <p id="fps">FPS:</p>
+    <div class="dropdown">
+      <button class="dropbtn">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="dropdown-content">
+        <script>
+            readLinksFile();
+
+            async function readLinksFile(){
+              let links_object = await fetch("links.txt");
+              let links_text = await links_object.text();
+
+              document.getElementsByClassName("dropdown-content")[0].innerHTML = links_text;
+            } // end of readLinksFile
+        </script>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">
+        <i class="fa fa-sliders"></i>
+      </button>
+      <div class="dropdown-content">
+        <input class="slider" id="numberOfPoints" type="range" min="1" max="1440" value="720">
+        <label id="numberOfPointsLabel" for="numberOfPoints">Number of points</label>
+        <script>
+          var sliderPoints = document.getElementById("numberOfPoints");
+          var outputPoints = document.getElementById("numberOfPointsLabel")
+          outputPoints.innerHTML = "Number of points: " + sliderPoints.valueAsNumber;
+
+          sliderPoints.oninput = function() {
+            outputPoints.innerHTML = "Number of points: " + this.valueAsNumber;
+          }
+        </script>
+        <input class="slider" id="angleOffset" type="range" min="0" max="6.28" value="0.13" step="0.01">
+        <label id="angleOffsetLabel" for="angleOffset">Angle offset</label>
+        <script>
+          var sliderAngle = document.getElementById("angleOffset");
+          var outputAngle = document.getElementById("angleOffsetLabel")
+          outputAngle.innerHTML = "Angle offset: " + sliderAngle.valueAsNumber;
+
+          sliderAngle.oninput = function() {
+            outputAngle.innerHTML = "Angle offset: " + this.valueAsNumber;
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <canvas id="myCanvas">You browser does not support canvas element.</canvas>
+  </div>
+</body>
+</html

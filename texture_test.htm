@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="Vendor/glm/glm-js.min.js" defer></script>
+  <!-- <script src='https://git.io/glm-js.min.js'></script> -->
+
+  <!-- <script src="Vendor/glMatrix/gl-matrix-min.js"></script> -->
+  <!-- <script type="module">
+    import * as glMatrix from "./Vendor/glMatrix/common.js";
+    import * as mat4 from "./Vendor/glMatrix/mat4.js";
+    export { glMatrix, mat4 };
+  </script> -->
+
+  <script src="Script/ShaderProgram.js" defer></script>
+  <script src="Script/ObjectLoader.js" defer></script>
+  <script src="Script/Model.js" defer></script>
+  <script src="Script/Camera.js" defer></script>
+  <script src="Script/shadow_mapping.js" defer></script>
+  <title>My Graphics Sandbox</title>
+</head>
+
+<body>
+  <div class="navbar">
+    <p id="fps">FPS:</p>
+    <div class="dropdown">
+      <button class="dropbtn">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="dropdown-content">
+        <script>
+            readLinksFile();
+
+            async function readLinksFile(){
+              let links_object = await fetch("links.txt");
+              let links_text = await links_object.text();
+
+              document.getElementsByClassName("dropdown-content")[0].innerHTML = links_text;
+            } // end of readLinksFile
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- <canvas id="myCanvas" tabindex="0">You browser does not support canvas element.</canvas> -->
+    <canvas id="myCanvas">You browser does not support canvas element.</canvas>
+  </div>
+</body>
+</html>
