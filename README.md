@@ -1,6 +1,6 @@
 # Graphics-sandbox
 My personal interactive take on real-time 2D/3D graphics using JavaScript/HTML/CSS/webGL. 
-To visit web page follow this [link](https://hmurij.github.io/Graphics-sandbox/). In `Hello World` tech demo, left click on canvas to active free roam camera, controls like in any fps game (awsd).
+To visit web page follow this [link](https://hmurij.github.io/Graphics-sandbox/). In `Hello World` tech demo, left click on canvas to activate free roam camera, controls like in any fps game (awsd).
 
 ![hello world](https://user-images.githubusercontent.com/92530084/142380508-24d1566e-aff4-4931-ac5c-0f87770ad928.gif)
 
